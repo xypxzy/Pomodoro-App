@@ -1,9 +1,14 @@
-.modalWindow {
-  padding: 20px 0;
+.modalOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+
+  background-color: #fff;
+  color: black;
 }
 
-.timeBlock {
+.modalContent {
   display: flex;
-  justify-content: space-between;
-  padding: 20px 0;
 }

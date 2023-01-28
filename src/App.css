@@ -4,7 +4,21 @@ a {
 }
 
 .App {
-  max-width: 500px;
   text-align: center;
-  margin: 0 auto;
+  background-color: rgba(241, 68, 82, 0.904);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+.container {
+  min-width: 500px;
+  padding: 30px 10px;
+}
+
+.openModal {
+  z-index: 1;
+  background-color: rgba(241, 68, 82, 0.705);
 }
