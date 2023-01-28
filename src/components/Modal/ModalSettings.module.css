@@ -1,0 +1,9 @@
+.modalWindow {
+  padding: 20px 0;
+}
+
+.timeBlock {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}

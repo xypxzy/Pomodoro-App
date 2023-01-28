@@ -1,0 +1,74 @@
+button {
+  border: none;
+  background-color: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.contentBlock {
+  min-height: 300px;
+
+  margin: 50px 20px;
+  padding: 20px 0;
+  background-color: rgba(212, 212, 212, 0.322);
+  border-radius: 5px;
+
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.tabsItem {
+  font-size: 16px;
+  padding: 5px;
+}
+
+.tabsItemActive {
+  font-size: 16px;
+  padding: 5px;
+  background-color: rgba(75, 75, 75, 0.596);
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+.tabsContent {
+  padding: 20px;
+  font-size: 120px;
+}
+
+.tabsBtns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-left: 60px;
+}
+
+.tabsBtnPause {
+  font-size: 26px;
+  font-weight: 600;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #fff;
+  color: rgba(241, 68, 82, 0.904);
+  cursor: pointer;
+}
+
+.tabsBtnReset {
+  margin: 0;
+  padding: 10px;
+
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #fff;
+
+  border-radius: 5px;
+  color: rgba(241, 68, 82, 0.904);
+  cursor: pointer;
+}
