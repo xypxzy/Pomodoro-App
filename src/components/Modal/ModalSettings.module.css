@@ -7,8 +7,50 @@
 
   background-color: #fff;
   color: black;
+
+  width: 400px;
+
+  text-align: start;
+  padding: 10px 20px;
+
+  border-radius: 10px;
+  min-height: 400px;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 19px;
+  padding: 10px 0;
+}
+
+.closeSetting {
+  cursor: pointer;
+  font-size: 24px;
+  color: #707070;
 }
 
 .modalContent {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modalContent input {
+  width: 90px;
+  border: none;
+  border-radius: 5px;
+  background-color: #acacac7c;
+  padding: 10px;
+}
+
+.modalContent p {
+  font-size: 14px;
+  color: #a1a0a0;
+  padding: 5px 0;
+}
+
+.text {
+  padding: 20px 0;
 }

@@ -8,6 +8,11 @@ import "./App.css";
 function App() {
   const addModal = document.querySelector(".App");
   const [open, setOpen] = useState(false);
+  const [modalTimes, setModalTimes] = useState([
+    { value: "30", label: "Pomodoro" },
+    { value: "5", label: "Short Break" },
+    { value: "10", label: "Long Break" },
+  ]);
 
   open
     ? addModal.classList.add("openModal")
@@ -16,8 +21,13 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <Header open={open} setOpen={setOpen} />
-        <Content />
+        <Header
+          open={open}
+          setOpen={setOpen}
+          modalTimes={modalTimes}
+          setModalTimes={setModalTimes}
+        />
+        <Content modalTimes={modalTimes} setModalTimes={setModalTimes} />
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import { RiSettings2Line } from "react-icons/ri";
 import styles from "./Header.module.css";
 import ModalSettings from "./Modal/ModalSettings";
 
-const Header = ({ open = false, setOpen }) => {
+const Header = ({ open = false, setOpen, modalTimes, setModalTimes }) => {
   const handleOpen = () => {
     setOpen(true);
   };
@@ -21,7 +21,12 @@ const Header = ({ open = false, setOpen }) => {
             Settings
           </button>
         ) : (
-          <ModalSettings className={styles.modalOverlay} isOpen={setOpen} />
+          <ModalSettings
+            className={styles.modalOverlay}
+            isOpen={setOpen}
+            modalTimes={modalTimes}
+            setModalTimes={setModalTimes}
+          />
         )}
       </header>
       <hr />

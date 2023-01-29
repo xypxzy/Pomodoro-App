@@ -16,7 +16,7 @@ const tabs = [
   },
 ];
 
-const Content = () => {
+const Content = ({ modalTimes }) => {
   const [activeTab, setActiveTab] = useState(0);
   const [time, setTime] = useState(600);
   const [isPaused, setIsPaused] = useState(false);
@@ -62,7 +62,7 @@ const Content = () => {
     seconds: time,
   };
 
-  const convertTime = (time) => {
+  const convertTime = () => {
     while (convertingTime.seconds >= 60) {
       convertingTime.minutes += Math.floor(convertingTime.seconds / 60);
       convertingTime.seconds -= convertingTime.minutes * 60;
@@ -70,11 +70,6 @@ const Content = () => {
     return convertingTime;
   };
   convertTime(time);
-
-  const handleResetClick = () => {
-    //Нужно дать дефолтное время
-    setTime(60);
-  };
 
   return (
     <div className={styles.contentBlock}>
@@ -87,7 +82,10 @@ const Content = () => {
             }
             onClick={() => {
               setActiveTab(index);
-              setTime(100); //Тут нужно дать время по умолчанию
+              setTime(+modalTimes[index].value * 60); //Тут нужно дать время по умолчанию
+              setIsPaused(true);
+              !isPaused &&
+                alert("You really want to change. Your time will be reset");
             }}
           >
             {tab.label}
@@ -105,14 +103,9 @@ const Content = () => {
           ? `0${convertingTime.seconds}`
           : convertingTime.seconds}
       </div>
-      <div className={styles.tabsBtns}>
-        <button onClick={handlePauseClick} className={styles.tabsBtnPause}>
-          {isPaused ? "Resume" : "Pause"}
-        </button>
-        <button onClick={handleResetClick} className={styles.tabsBtnReset}>
-          <p>Reset</p>
-        </button>
-      </div>
+      <button onClick={handlePauseClick} className={styles.tabsBtnPause}>
+        {isPaused ? "Resume" : "Pause"}
+      </button>
     </div>
   );
 };

@@ -1,13 +1,14 @@
-import React, { useState } from "react";
 import { RiCloseLine } from "react-icons/ri";
 
 import styles from "./ModalSettings.module.css";
 
-const ModalSettings = ({ isOpen }) => {
-  const [num, setNum] = useState("");
-
-  const handleNumChange = (event) => {
-    setNum(event.target.value);
+const ModalSettings = ({ isOpen, setModalTimes, modalTimes }) => {
+  const handleNumChange = (event, index) => {
+    const newInputs = [...modalTimes];
+    if (event.target.value >= 0) {
+      newInputs[index].value = event.target.value;
+      setModalTimes(newInputs);
+    }
   };
 
   const handleClose = () => {
@@ -16,22 +17,22 @@ const ModalSettings = ({ isOpen }) => {
 
   return (
     <div className={styles.modalOverlay}>
-      <h3>Time(minutes)</h3>
+      <div className={styles.modalHeader}>
+        <h5>Setting</h5>
+        <RiCloseLine className={styles.closeSetting} onClick={handleClose} />
+      </div>
+      <hr />
+
+      <p className={styles.text}>Time(minutes)</p>
       <div className={styles.modalContent}>
-        <label>
-          <p>Pomodoro</p>
-          <input type="number" value={num} onChange={handleNumChange} />
-        </label>
-        <label>
-          <p>Short Break</p>
-          <input type="number" value={num} onChange={handleNumChange} />
-        </label>
-        <label>
-          <p>Long Break</p>
-          <input type="number" value={num} onChange={handleNumChange} />
-        </label>
-        <button onClick={handleClose}>Submit</button>
-        <RiCloseLine onClick={handleClose} />
+        {modalTimes.map((input, index) => (
+          <input
+            key={index}
+            type="number"
+            value={input.value}
+            onChange={(e) => handleNumChange(e, index)}
+          />
+        ))}
       </div>
     </div>
   );
